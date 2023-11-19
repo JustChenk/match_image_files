@@ -46,7 +46,7 @@ target_column_index = 0  # 这里假设你想在第二列（索引为1）中查�
 # 复制每个在文件夹中找到的图像到目标文件夹
 for index, row in df.iterrows():
     image_name = row.iloc[target_column_index]  # 使用 iloc 获取特定列的值
-    image_name = image_name.split('\\')[1]
+    image_name = image_name.split('\\')[-1]
     if image_name in image_files:
         source_path = os.path.join(image_folder_path, image_name)
         target_path = os.path.join(target_folder_path, image_name)
